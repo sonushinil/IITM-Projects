@@ -1,0 +1,1711 @@
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+Week 7: Transcript 
+Video 7.1: Supervised Learning - Classification Part 2 
+Hello and welcome back. In this module, we are going to be talking about some advanced supervised 
+classification techniques, specifically support vector machines and random forests. So, basically, we 
+will first start with support vector machines. It is actually a slightly complicated machine learning 
+algorithm to understand, but one of the very successful algorithms to be used for a variety of 
+classifications, specifically binary classification and where decision boundaries are actually linear to 
+begin with. 
+And of course, we will also see how it is modified to even look at non -linear class boundaries. So, 
+the algorithm itself is based on how to create the optimal class boundary. So, optimal boundary for 
+separating, let us say, two classes. And therefore, they have been very useful for a variety of 
+classification tasks, image recognition, even working with data, other kinds of data like tablet data, 
+etc. 
+So, support vector machines are basically a supervised machine learning paradigm used for 
+classification as well as regression tasks. So, it works by finding the optimal boundary also known as 
+the hyperplane. So, hyperplane because the data can be more than three dimensions. So, in 
+multidimensions, the plane generalises to a hyperplane. 
+And the objective of the hyperplane is the hyperplane is determined such that it best separates 
+different classes in a dataset. So, by maximising the margin, so we will see what that means between 
+the data points SVM ensures accurate classification here for new unseen data. So, therefore, it 
+affines a lot of applications in many task classification tasks, span classification, filtering, etc. So, we 
+use a lot of terminology here like margin, etc. 
+So, we will see what that means as we progress in this lecture. So, the decision boundary, so let us 
+look at some terminology, the decision boundary or the hyperplane that we mentioned is the 
+dividing line in an SVM model that separates different classes in the data. Let us say dividing line 
+being not being very rigorous here is basically think of a plane that cuts your feature space into two 
+pieces, two halves, you can call it or two sides. One side is class one specific class, other side of the 
+plane is another class. 
+The way that is determined, this hyperplane is determined, it is chosen to maximise the margin that 
+is the distance from the closest data points known as support vectors. So, every class, so let us say 
+you are looking at a two-class classification problem. So, there are classes. So, each class has a bunch 
+of points so class one has a bunch of points, class two has a bunch of points. 
+The way this plane is determined is such that the distance from the plane to the closest points in 
+each class is maximised. So, we will see that is why it is the distance, that closest distance from 
+points in one class to the plane is known as the margin. So, the points which have this distance, the 
+closest data points, they are known as support vectors and these support vectors are critical as they 
+determine the position and orientation of the hyperplane. Changing them would alter the boundary 
+making them the most influential points in the classification. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So, the maximum margin classifier as SVMs are known ensures the widest possible separation 
+between classes thereby enhancing the SVM model's ability to generalise to unseen data. So, 
+maximising margin basically helps you know makes SVM create a more robust and effective classifier 
+just to once again the support vectors are just to reinforce this support vectors are basically the 
+closest data points to the boundary. Boundary is basically the decision boundary or the hyperplane 
+that you are trying to estimate. So, think of it as trying to estimate the equation of a plane subject to 
+the distance from the plane to the closest points in each of the classes we are looking at binary 
+classification. 
+So, there is a class of minus 1 and class plus 1. So, there are these data points which are very close to 
+this hyperplane you are estimating and we are trying to actually maximise the distance and thereby 
+creating this equation of a plane which will divide the classes appropriately and also generalising to 
+new data. So, this visualisation here illustrates the maximal margin classifier in a support vector 
+machine for binary classification. So, the model aims to classify two distinct classes represented by 
+two different colours based on two features. 
+So, a bunch of data points belonging to two different classes, but we are only considering two 
+features for this particular classification problem. So, the x axis is feature 1 and y axis feature two. 
+So, we are basically plotting the points in feature space and the idea behind any classifier is to find a 
+boundary or a curve or a hyperplane or a plane which separates these two classes. So, in many 
+applications like image recognition, text classification, etcetera, the effective separation of the two 
+classes is critical to make sure that the algorithm is robust that is it does not, what do you call, do a 
+lot of misclassification and also generalises to new data. 
+So, if you look at this figure, the decision boundary is shown as a central line which separates the 
+two classes while the shaded margins indicate the maximum separation achieved by the model, 
+maximum separation that is the distance from the support vectors to the decision boundary. The 
+support vectors are highlighted if you look at it closely, there are these number of points which are 
+at the edge of these two bands, those are the support vectors and they are the closest decision point 
+to the boundary and they play a critical role in defining the position of the decision boundary and 
+the orientation. So, modifying the support vector, if you choose a different set of support vectors, 
+then you have a completely different decision boundary. The support vectors you chose that were 
+chosen for this particular defined this boundary or basically if you can look at it, they are the points 
+which lie exactly on the edge of these margins. 
+So, by maximising the margin that is the distance between the hyperplane and the support vectors, 
+you get an optimum hyperplane which actually generalises well and improves classification accuracy. 
+So, there are quite a bit of math involved in understanding SDM. So, we will go through it to the 
+extent possible. So, let us just try to see how to understand this hyperplane. 
+So, the mathematical representation of this problem is very important. So, if you look at it, so the 
+objective of the support vector machine is to identify a hyperplane that effectively separates two 
+classes in a n-dimensional feature space. So, the previous example we saw two-dimensional feature 
+space where we can visualise the boundary, right, it is a line.  
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So, we can even you know try to do some form of you know visualisation trickery maybe even 
+visualise a plane, but beyond two or three dimensions, two and three dimensions, visualisation is not 
+possible. 
+Therefore, we just have to construct the equation. So, the hyperplane that we are constructing or 
+that at SVM outputs is acts as a decision boundary ensuring that data points on one side belong to 
+one class while those on the other side belong to a different class. So, the equation that represents 
+the hyperplane is given on the slide. If you look at it, the equation is 𝑤 ∙ 𝑥 + b = 0. 
+In this equation, w represents the weight vector which is a normal to the hyperplane or 
+perpendicular to the hyperplane. The term x here denotes the input feature vector while b is the 
+bias term which adjusts the position of the hyperplane that is how far away it is from the origin for 
+instance, right. So, together these components determine the orientation and placement of the 
+boundary allowing the SVM to classify data points into their respective classes, okay. But once again 
+as we have been saying all along, the primary objective is of the support vector machine algorithm is 
+not to just find some hyperplane, right, but identify the one that maximises the margin between the 
+two classes. 
+The margin again is defined as the distance from the hyperplane to the nearest points of each class 
+which are known as support vectors. Now, these vectors play a crucial role in determining again the 
+position and the orientation of the decision boundary, okay. Why do we need to maximise this 
+margin? Because it is essential for improving the robustness which means that if there is small noise 
+in your data, your classifier should be a kind of not affected by that noise to a degree. 
+Of course, if there is gross errors, you cannot do anything but a bit of noise should not throw off the 
+classification accuracy. So, if you have a very large margin, means that the model can generalise 
+better to new data, right. So, again making it less sensitive to variations in the data set, okay. So, 
+mathematically this margin is defined as M. 
+It turns out that it is maximised by minimising the Euclidean norm of the weight vector which is 
+basically square root of the sum of squares or the square itself while ensuring that all data points are 
+correctly classified, okay. So, by optimising the margin SVMs create a well-defined decision boundary 
+enhancing their effectiveness in tasks basically classification. We will work through this multiple 
+times so that you know it is very clear what we are trying to do. So, optimising the boundary, right. 
+The optimisation problem in a support vector machine focusses on again maximising the margin 
+between the hyperplane that is the decision plane and the nearest data points of each class while of 
+course ensuring the correct classification, right. So, this is achieved by minimising the squared 
+Euclidean norm of the weight vector w which helps define the optimal hyperplane. So, this is once 
+again formulated as minimise one half times the squared norm of w which is what is given in the 
+slide, okay. This of course expression ensures that there is a robust separation between classes by 
+keeping decision boundary as far away as possible from the closest data points. 
+ 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+The factor one half is included for mathematical convenience during optimisation, okay. The 
+constraint for this optimisation is given by yᵢ(w · xᵢ + b) ≥ 1 for all data points i, okay. Here yᵢ refers to 
+the label of the i data point. So, we are looking at a two class problem. 
+Therefore, yᵢ can be either a + 1 or a + 1, okay, indicating its class, okay. So, this particular condition 
+yᵢ(w · xᵢ + b) ≥ 1 ensures that each data point is correctly classified with a margin of at least one unit 
+norm or one unit distance from the decision boundary, okay. So, by solving this optimisation 
+problem, SCM constructs a well-defined decision boundary and which of course allows for some 
+noise in your data therefore making it more robust and also generalisable to new Unseen data, okay. 
+So, a lot of the math that goes into arriving at these conditions as well as solving them is quite 
+complicated and I would say at some point the beyond the scope of this particular course. 
+So, we will just talk about the implications of you know of this formulation etcetera rather than 
+going into the actual derivation, okay. So, let us look at where we got all those expressions from, 
+right. Very briefly though once again you are not expected to be an expert in this particular math but 
+it helps if you understand it to the at least know where the sources are for each of these things, 
+right. So, if you look at the math representation, so the equation of a hyperplane in n dimensional 
+space is given by this equation w ⋅ x + b = 0. 
+So, you are all familiar with simple equation of a line, equation of a plane. So, this is just a 
+generalisation to n dimension. So, equation of a plane would be w1 x plus b equal to 0 where x is just 
+one number. You can even look at you know a plane where you can say a x plus b y plus c z equal to 
+0 some function in that form. 
+So, all of these are again for in dimension that you can visualise, right. It is not necessary that you 
+can visualise in all dimensions but for more than three dimension visualisation is impossible 
+therefore you just represent it with an equation of this form w ⋅ x + b where w is the weight vector 
+which is always perpendicular or normal vector which is always perpendicular to the hyperplane. Its 
+direction indicates the orientation of the hyperplane, x is a data point or a feature vector, b is the 
+bias or the intercept which shifts the hyperplane away from the origin, ok. So, for classification once 
+you have this equation let us say you figured out w and b, ok. 
+We will see how that is done in the later slides but once let us say you have figured it out and the 
+classification rule is such that for any new data point. So, you get a new data point x𝑛𝑒𝑤 where x is a 
+feature vector you plug it into the equation w ⋅ xnew+b, ok. If it is greater than 0 then you classify as 
+class 1 that is y equal to 1. If it is less than 0 you classify as class two, ok. 
+So, that is the rule, ok. So, this is what so again this is not surprising, right because w ⋅ x + b = 0 
+indicates all points that lie on the plane, right. So, therefore anything w ⋅ x +b>0 will be on one side 
+of the plane w ⋅ x +b<0 will be on the other side of the plane hyper and of course this is hyperplane 
+therefore one side and other side might not be very meaningful in terms of visualisation but you 
+think of a plane in three dimension and in that case visualisation makes it a lot easier to understand. 
+So, defining the margin boundary rule. 
+ 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So, in the formula we saw earlier we said greater than or equal to 1 that is fine because you can see 
+that you know you can shift it will be easy to prove that you can scale this w and b by any vector by 
+any scalar for instance if you. So, here we define the margin boundary lines, right. So, for a binary 
+classification problem that is the where the labels are - 1 and + 1 they are that for a reason we just 
+wrote if you remember the couple of slides ago we wrote w ⋅ xi+ b >= 1 and w ⋅ x𝒊 + b <= - 1. This is 
+because you know you can scale the equation of w ⋅ xi + b by any scalar and you know you get the 
+same classification, right. 
+Therefore, in order for the distances to make sense we can just normalise them to be greater than or 
+equal to 1, right. So, it is basically you write it as w ⋅ xi+ b >= 0 but because of the scaling you just 
+choose this normalisation such that w ⋅ xi+ b >= 1. So, if you look at these two equations w ⋅ xi+ b > 1 
+and w ⋅ xi + b < - 1 you can combine them in this form which says (yi(w ⋅ xi + b) ≥ 1 ∀i where i is 
+the data per sample index, right. So, the equality basically defines the margin boundaries w ⋅ x + b = 
+0 for class as 1 support vectors w ⋅ x + b = -1 for class two support vectors, right. 
+So, basically so how does this work like I said if w ⋅ x + b = 0 satisfies the equation of the plane. So, 
+anything just infinitesimally above or infinitesimally below will be a different class, right. But then 
+how is it defined we are only looking at distance from the support vectors which are basically the 
+bound which are which are closest to the hyper plane. So, that distance we normalise as 1 that is all 
+we are doing, right. 
+So, plus y w ⋅ x + b = 1 and + b = -1 basically the points x that satisfy that corresponds to the support 
+vectors. So, we can again maximising the margin width let us see where that equation comes from. If 
+you are looking at two parallel hyper planes, right. Let us say two hyper planes which are parallel to 
+each other given by these equations w ⋅ x + b1= 0, w ⋅ x + b2 = 0 then you can show that the distance 
+between them is nothing but 
+|𝑏1−𝑏2|
+‖𝒘‖ , right where w you can treat like a vector. 
+So, for our margin boundaries w ⋅ x + 1 = 0 and w ⋅ x - 1 = 0 define two planes which pass which 
+contain the support vectors, right. So, then which also means that 𝑏′= 1 and 𝑏′ = - 1 therefore, we 
+can calculate the distance between by as two over the norm of w, ok. So, to maximise this distance 
+we need to maximise two over norm of w this is equivalent to minimising norm of w itself, ok. So, for 
+mathematical convenience that is to get a quadratic objective function or if you have squared if you 
+look at it if you if you plot x squared if x is a scalar or w squared and w is a scalar you can see that it 
+is actually a parabola turns out that it is much easier to optimise therefore, minimising norm of w is 
+the same as minimising square of the norm and of course, we have a factor of two just to help with 
+the mathematics, right. 
+So, basically what we are trying to do is what this slide tells you is that you have two hyper planes 
+one that contains the support vectors of one class from one class other that contains support vector 
+from another class all we are trying to do is you know finding out the distance between them and 
+maximising the distance, ok. Therefore, you will once you do that we find out that that distance 
+turns out to be two over norm of w and the norm of w once again you have to minimise just to 
+maximise two over norm of w. So, I mean at same as minimising norm of w squared.  
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+Now, in this case if you if you pay attention it seems like we are only considering only as planes 
+which go through the support vectors and we seem to have somehow lost track of the actual 
+boundary you know the hyper plane that actually separates the two classes that is encapsulated by 
+w, ok. 
+w contains information about the separating hyper plane that is the addition boundary or addition 
+hyper plane. So, therefore, you know we are not exactly ignoring it we are just using that as you 
+know to define these two other hyper planes which pass through the support vectors. So, therefore, 
+if you if you write down the actual expression may the for support vector machines the idea is to 
+maximise half norm of w squared subject to these constraints yi(w ⋅ xi + b) ≥ 1, ok. So, this is it 
+turns out that if you do some course advanced course in optimisation. 
+It turns out that this is a convex optimisation problem that is an unique minima axis sorry an unique 
+minima axis or unique optimum point axis. And it also falls under a category of problems known as 
+quadratic programming problems because the objective programming is quadratic and the 
+constraints are linear that is the definition of the quadratic programming problem. And like I 
+mentioned earlier a unique global minima minimum exists for such convex problems. So, we have 
+seen this. 
+So, that is all we will stop right there and then all you will do is if you solve that problem, we will be 
+able to figure out the equation of that plane. Now, once you figure that out then you just you write a 
+new data point comes in you have 𝑤 ⋅ 𝑥𝑖 + b and find out whether it is greater than or equal to 1 or 
+less than or equal to 1 and you are done. Now, we are talking about here what we see if you look at 
+if you remember the graphs we looked at earlier etcetera. We have been looking at so called linearly 
+separable problems where we saw that in the feature space if you draw this plane or this line that 
+we are estimating it neatly separates the feature space into two one containing class 1 other 
+containing class two. 
+But see the real world problems usually it is not like that right it is much much harder there will be a 
+lot of noise etcetera and there will be a kind of overlap between the classes. So, a rigid margin would 
+not help you know it would lead to overfitting or no solution. So, here we allow this slack variable 
+once to exist. So, we allow for some misclassification or points to fall within the margin that is that is 
+there will be some points which lie between the margin for 1 class and the decision boundary and 
+the margin for another class and the decision boundary and that distance we modulate using this the 
+slack variable called theta i. 
+So, every data point we introduce a slack variable theta i and then the constraint becomes yi (w 
+⋅ xi + b) ≥ 1 - ξi . So, 𝜉𝑖 = 0  point is correctly classified and outside of the margin that is away from 
+the margin if theta is between 0 and 1 point is classified correctly, but inside the margin and if 𝜉𝑖 >= 
+1 point is misclassified because it goes on the other side even though of the plane even though it is 
+actually a let us say it is class 1 it goes on to class becomes class minus 1. So, these are the rules for 
+the slack variable theta i. So, therefore, this is one other way of formulating the problem and if you 
+formulate this problem you will get a slightly modified version of the objective function. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So, if you look at this is what it looks like once again you just look at this expression you have the 
+1
+2 ‖𝒘‖2 + 𝐶 ∑ 𝜉𝑖
+𝑁
+𝑖=1  subject to the same constraints. So, C is a hyperparameter basically which 
+controls the trade-off between maximising the margin and minimising the training error. So, large C 
+means that you have a very high penalty if there is a misclassification, but this leads to some 
+problems called overfitting, but if you do a small c it is a low penalty for misclassification, but then 
+leads to a wider margin. So, depending on you know your problem you have to decide what kind of 
+margin you want. 
+So, this is just to show you how it is how for real world data you need to do this thing right. If you do 
+not have this slack variable which means you are assuming that there is a this hyper plane and all the 
+points belonging to one class on one side of the hyper plane and all the points belonging to the other 
+class or on the other side. So, that is how we are doing it, but in real life scenarios and data is noisy. 
+So, there will be some overlap within the classes and you account for the overlap in the classes by 
+incorporating this theta i known as this slack variable. 
+So, this is a question it comes what if the data cannot be separated by straight line or plane even 
+with slack variables. This is the problem it happens a lot and this is what most of the real world data 
+is it is a non-linear. So, it is either the classes cannot be separated by a plane, but rather you need a 
+much more complex boundary. So, we are going to see what happens if the data cannot be 
+separated by straight line or plane with even with slack variables. 
+So, the trick then is to map the data into a higher dimensional feature space where it becomes 
+linearly separable. So, this is the trick that we will be looking at right now which makes SVM very 
+powerful all right. So, let us look at these points right. So, if you look at the example here class 1 as a 
+point {-1,1}. 
+So, let us look at an example of you know situation where it is difficult to classify points just with a 
+plane or a hyper plane right. So, consider these 1D data points right this is one dimension. So, we 
+have class 1 {-1,1} class two is {-2,2} ok. Now in the figure they are drawn the red data points which 
+belong to class two you can call them + 1 and - 1 if you want to the class itself, but it is, but it is very 
+confusing therefore, if you have call them class 1 and two. 
+So, class 1 consists of points - 1 and 1 along the x axis this is a one dimensional problem there is only 
+one value for your feature vector which is a scalar actually. So, minus 1 and 1 and then you have the 
+other class two which whose that the points corresponding to class two are minus two and two ok. If 
+you look at this figure you have x and y axis, but these points if you plot if you project them on the x 
+axis itself you will see that they cannot be separated by a point or lean 1D. So, if there is no there is 
+you cannot draw some line which splits the x axis into two or put a point which splits the x axis into 
+two and into in the sense that it will give the blue on one side and the red on the other that cannot 
+happen. 
+So, if you just plot {-1,1}, {-2,2} on a straight line like you cannot figure out a point or you cannot slice 
+that line. So, that {-1,1} on one side and {-2,2} on the other side that is not that is impossible.  
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So, in this scenario you find this transformation what is this transformation I make up a feature 
+vector for every point that is (x, x2) So, my ∅(x)the transformation is basically x takes x as input and 
+outputs (x, x2) ok. 
+So, if you look at it ∅(- 2)  will be (- 2, 4),  ∅(- 1) will be (- 1, 1) and ∅(1) will be (1, 1), ∅(2) will be (2, 
+4). So, if you look at this you see {-2,2} now are augmented by another feature dimension which is 
+basically 4 which takes on the value 4. Now if you look at the picture again now we have an x and a y 
+where y here is x square right. So, {-1,1} are now mapped into (1, 1), {-2,2} are now mapped into you 
+know minus two (- 2, 4),  and 4. 
+So, now we can draw this green line which separates the two classes ok. So, just by adding an extra 
+dimension which itself arises from a non-linear combination of your existing features you are now 
+able to draw a hyperplane that will separate these two classes. So, this is the trick that is often used 
+in the context of support vector machines which takes existing features makes new features of 
+course, is actually increases the number of dimensions in your problem, but you can just make it 
+more make it possible to now separate the classes by a hyperplane. So, the computational challenge 
+here is that the transform feature space can be very high dimension ok. 
+Especially if you are computing phi of x for every data point and then performing dot products in this 
+space ok. So, where does this dot product comes from it turns out that once you start or once you 
+start using this non-linear combination of your existing features to produce new features in your loss 
+function there are dot products of the features right. We will look at the formulation and then you 
+will be able to understand ok. The crucial insight in SVM is that if you look at something called the 
+dual formulation once again it is not necessary to understand this part, but the idea is the following 
+right. 
+What happens is that when you write down this loss function or the objective function for SVM once 
+you and if you incorporate this non-linear combination of your existing features, it turns out that 
+your loss function only needs the dot product between two different feature vectors ok. And you do 
+not actually have to calculate ∅(x) you just need ∅(xi) ⋅ ∅(xj). So, this problem once again can be 
+solved using a mathematical trick that is that kernel trick ok. So, remember. 
+So, we will recap it a little bit in this particular slide itself. We saw that not all problems are linearly 
+separable the toy problem I showed you is impossible to draw a boundary that is a line hyper plane 
+that separates those two points those two classes. Now by adding an extra feature which is nothing 
+which is a non-linear combination of your existing feature which is x and x2 you are able to get into 
+an extra dimension and now you can draw this plane making a problem linearly separable right. Now 
+when you do that when you actually implement it for a real problem where there are multiple 
+features it turns out that you will have terms which in your loss function which is defined only on the 
+dot product of the feature vectors right where phi is the transformation that are applying to on the 
+on your features right. So, in the previous example I showed you the phi of x is nothing but x2 in this. 
+So, it can be any other function we look at some model functions also ok, but it turns out this kernel 
+trick basically involves figuring out a function that directly calculates this dot product in the higher 
+dimensional space without having to actually do the explicit transformation ok.  
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So, if you look at the loss function of an SVM there will be terms like xi ⋅ xj  now instead of xi ⋅ xj  
+you can of course transform xi,  xj by doing this phi of xi,  xj it turns out I do not have to do this there 
+is one other function you call this kernel function which can directly do this dot product right. So, 
+this allows this SVMs to implicitly operate in higher dimensional spaces finding non-linear decision 
+boundaries efficiently ok it is a little bit of a trick which is difficult to grasp right. 
+So, you just work this out from scratch right if you have like three or four features right then going 
+by a previous example the way to do the non-linear calculate more features is to take you know dot 
+products between or multiply these features together right. So, if you have (1x, x2) as your feature 
+you can multiply (x, x2) as x3 and then x2 raised to cube so on and so forth. So, there will be this 
+multitude of features that you can create ok and then the loss function involved taking dot products 
+between them right. So, you can skip that part by defining the so called kernel function which will 
+which implicitly calculates a dot product without having to actually do a transformation this saves a 
+lot of what you will compute doing this efficiently saves a lot of compute ok. 
+So, dot products where do they appear ok. So, it turns out that if you actually incorporate all of what 
+we are talking about you know the slack variables etcetera and then do this formulation it turns out 
+that the loss function or the cost function is a function of alpha it comes out in this form yi ⋅ 𝑦j, xi ⋅ xj 
+it turns it comes here. So, this is also another quadratic programme programming problem and once 
+again this is the constraint these are the two constraints 0 less than or equal to alpha less than or 
+equal to c and this linear combination equal to 0 ok. So, and it turns out that xi and x𝑗 interact only 
+through their dot product xi ⋅ x𝑗 remember that xi and x𝑗  are feature vectors corresponding to data 
+sample index i and j ok. 
+So, you can actually from what we saw the 1 by two of norm of w squared subject to that constraint 
+that we saw can be now reduced using a formulation known as the Lagrangian formulation we can 
+actually get it in this form where αi and αj are subject to these constraints ok it turn out to be the 
+support vectors. So, now instead of xi ⋅ xj  we want to do more non-linearities therefore, we can 
+make it a little bit more general. So, we can actually replace xi ⋅ xj with k of xi x𝑗 so all you have to 
+do is evaluate this function k. So, instead of explicitly figuring out some function phi calculating phi 
+of xi and phi of xj and doing the dot product we can actually just replace it with K(xi,  xj) turns out it 
+is computationally more efficient ok. 
+So, other advantages you can have lots and lots of these features, but it is the only limiting factor is 
+the number of data points ok. So, what this allows is to allow the SVM to find non-linear boundaries 
+in the original feature space by finding linear boundaries in a implicit higher dimensional space that 
+is how it is. So, the way to think about is the following you have like 3 or 4 features and you are 
+finding it very hard to draw a plane which separates one class from the other in a feature space. The 
+way to go get out of that issue is to create new features out of your existing features. 
+How do you create new features? You just cross multiply between feature terms and then that way 
+you add extra dimension that is what we did in the example we add an extra dimension. So, as you 
+add more and more dimension it will be possible that is possible that your classes start to separate 
+out and once they start separate enough then you can actually draw a plane which separates them 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+in the higher dimensional space. Now, you can take that plane and project it back to your original 
+dimensional space and it look like a complex actually be equal like a complex boundary ok, but the 
+process of creating these new features involves a lot of compute. 
+This kernel trick lets you get over that compute. So, what are these alpha i's that we saw? They are 
+known as Lagrange multipliers. So, they are actually leaving a lot of information about the train data 
+alpha equal to 0 implies the data point is well outside the margin alpha less than c the data point x i 
+lies exactly on the margin boundary these are the support vectors equal to c is inside the margin or is 
+misclassified there is a margin violation. 
+These are also support vectors, but they indicate the limit of c is parametered at all levels right. So, 
+once again depending on what the value of alpha i is for every data point. So, between a 0 to C the 
+data point xi lies exactly on the margin boundary. So, these are the support vectors basically alpha 
+equal to c they actually add the margin right they can be misclassified ok, but you can also take them 
+like support vectors. 
+So, just repeating this information. So, that can relate to what we have seen so far. So, there are two 
+kernels here one is known as a linear kernel and another is known as the RBF or the Radial Basis 
+Function. So, in this visualisation we demonstrate the so called kernel trick in the support vector 
+machines by comparing two kernel functions a linear kernel and Radial Basis Function or RBF kernel 
+right. 
+So, when solving the classification problem data points can be distributed in complex patterns 
+making it difficult to find an efficient decision boundary ok. So, here we compare how different 
+kernels impact classification accuracy. So, a left plot here on the left shows SVM with linear kernel 
+ok. So, if you look at this there are two classes in interleaved circle. 
+So, this is the centre a bunch of clusters or just one class and the outer ring is the second class right. 
+So, we simply cannot draw a line which separates the two classes. If you look at the picture you see 
+there is a blue and you know there are two shades there one shade representing class 0 and other 
+shade representing class 1 that is the decision boundary drawn using the linear kernel right. But with 
+distribution of data is such that misclassification will occur heavily ok. 
+And you can see that there are the regions where the model fails to correctly separate the two 
+classes right. On the other hand if you look at Radial Basis Function kernel which allows for a more 
+flexible decision boundary. So, the RBF kernel transforms the data into higher dimensional space 
+making linear separation possible. So, therefore, as a result the decision boundary curves around the 
+data points significantly improving the classification accuracy ok between the two classes. 
+So, this is a kernel trick right. So, you try to map your feature space into more dimensions and in that 
+higher dimensional space you can separate it with a straight line or higher plane. But then if you map 
+it back to the original dimension it looks like a complicated curve ok. So, if you choose a good 
+enough kernel you will get a very good classification regardless of whether how complicated your 
+class boundaries are. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+The different types of kernel the linear kernel works very well with linearly separable data right. So, 
+here we are talking about xi dot xj right. So, and the linear kernel is typically used when data is 
+already linearly separable ok. It calculates a dot product between the input vectors measuring the 
+similarity in the original feature space. 
+Now the polynomial kernel applies a polynomial transformation basically takes k of xi xj takes it and 
+say xi ⋅ xj  plus c raise to the power d ok. So, finally, we have the RBF kernel right with the handles 
+complex non-linear data and uses an exponential function for flexible separation. Notice k of xi xj is 
+c raise to minus gamma the norm of xi minus xj squared ok. So, this is again a very powerful kernel 
+once again gamma is hyper parameter in the previous example polynomial kernel d is another hyper 
+parameter depending on a problem this will change. 
+So, once you have this you will have a final decision function all you have to do is calculate sin of w 
+dot x plus b ok. To get a positive as output assigned to one class negative output assigned to the 
+other case ok. The sign basically determines whether it belongs to one class the other ok. So, you 
+basically find out the equation of the hyper plane using this kernel trick you solve the optimisation 
+problem find out the equation of the hyper plane once you know you can classify it as belonging to 
+one class or the other depending on whether you are getting a positive or a negative sign. 
+The parameter c that we saw in the last function also known as the regularisation parameter it 
+controls the tradeoff between maximising the margin and minimising the classification error ok. So, 
+high C value prioritises correct classification of all training points while it gives you high training 
+accuracy it also increases the risk of overfitting ok. So, where the model it learns to capture the noise 
+instead of the underlying pattern. Low C value allows for some misclassification to achieve a wider 
+margin this improves the model generalisation to new data, but comes with a higher risk of 
+underfitting in the sense that the model oversimplifies patterns and fails to capture data 
+complexities. 
+So, finding the right balance of C ensures that SVM models work very well and also generalises well 
+ok. So, it is like this right. So, you have these margins right you will have some data which are slightly 
+to one side of the margin that is closer to the hyper plane some data which again comes closer to 
+the hyper plane there are scan data sets data which are actually in violation of the hyper plane. So, if 
+you make the margins very tight you know you get very good accuracy on your train data, but it will 
+fail on the test ok very careful about how you choose C parameter C. 
+So, people typically use RBF and sigmoid kernel ok RBF is more often used and it is influenced by this 
+parameter gamma that we saw e raise to minus gamma x i minus x j squared right the norm squared. 
+So, RBF tuning RBF is another you know big part of hyper parameter optimisation in support vector 
+machines. And if you look at the other kernels basic kernels linear kernels basically no 
+transformation that is how the x i and x j appear in the dual formulation and it works very well for 
+linearly separable data. The polynomial transformation basically allows the model to capture non-
+linear relationships and the complexity of is controlled by the degree parameter ok. So, if you go 
+back to the formula there is a power raise to the power d which tells you you know how you know 
+higher the degree of that the more complex the polynomial you get ok.  
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+Sigmoid is not often used it is very similar to what you get do in neural networks which we will we 
+will run into later as part of this course. So, here we talk about the gamma parameter which defines 
+the influence of a single training example on the model high gamma value for instance restricts its 
+influence to nearby points increasing the risk of overfitting and creating complex decision 
+boundaries. Low gamma value allows each training example to have a broader influence leading to 
+smoother boundaries, but can relate to more error right. 
+Of course, this is something that you have to play with to get a good classification all right. So, where 
+are they used where are support vector machines used? Basically, image classification in fact, a very 
+recent I would say I would say very recent few maybe 3 to 5 years ago there is a lot of work on 
+object detection using neural networks deep neural networks like CNN where people have used SVM 
+for classifying images right. Text classification, healthcare, diagnosing of diseases, handwriting 
+recognition etcetera. 
+So, if you look at some these some of them are tabular database some of them are image based for 
+instance finances management to some extent healthcare depending on what kind of data it can be 
+either images or can be just tabular data bioinformatics can be tabular data, but if you look at the 
+image classification and handwriting recognition etcetera more like image data right. So, how do you 
+feed image data to SVM because it relies on the feature vector of course, you can rasterise an entire 
+image, but most of the time we will figure out some way of extracting features on the pictures or the 
+images and that feature is basically what is given as an input feature vector to the SVM. Of course, 
+lots of problems here in implementing it properly especially hyper parameter tuning noise in your 
+data set can be computationally intensive, but it depends only on your number of you know data 
+points at this and therefore, it is not an issue it requires a lot of tuning to make it work right because 
+there are many other issues mentioned here which not go into detail now because it is make more 
+sense when you talk about neural networks etcetera and we can come back to this concept. At this 
+point it is just that the important thing is that it is computationally intensive prone to noise and it is a 
+binary classifier mostly sensitive to you know you need a lot of class validation is considered the 
+hyper parameters. 
+So, far you have looked at SVMs right support vector machines which is a binary mostly used for 
+binary classification the way you would use for multiclass classification is to classify one versus the 
+rest for every class out there. So, it depends on the SVM works by figuring out a decision boundary 
+which is basically a plane hyper plane here assuming that the problem is linearly separable that is 
+you can separate two classes in this case in the context of binary classification separate two classes 
+in feature space by drawing a hyper plane. Now, it turns out in real life that is typically not the case. 
+So, you cannot just draw a hyper plane separating two classes because the boundaries of the classes 
+sometimes are not planes right they are for instance the pictures we saw there was one class and 
+which is a cluster and then there is a another class which is a cluster which was around it. 
+So, you cannot draw a plane that separates it right. So, to find out that maximum to that optimum 
+hyper plane for linearly separable classes we maximise the margin that is the distance between the 
+hyper plane and a support vectors these are support vectors or points in either class which are 
+closest to the hyper plane. So, we are maximising that distance we make sure that we have a very 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+high quality classifier. On the other hand when the decision boundaries are non-linear we solve the 
+problem by increasing the number of features by doing a you know a non-linear combination of your 
+existing features. 
+Now, doing that using certain class of functions make it amenable to the kernel trick wherein you 
+can directly compute these dot products between these higher complex features by just evaluating 
+the kernel function right. So, once you incorporate that then you can solve the problem to find out 
+the optimal hyper plane in the new feature space which has more features because of the non-linear 
+combination of existing features right. Of course, you can always project the decision boundary back 
+to the real feature space where it becomes a non-linear curve like thing instead of a hyper plane we 
+will have a complex boundary. That is all we have for SVM. 
+It is a very challenging algorithm to understand and a lot of the material that is required to 
+understand it very deeply is unfortunately out of the scope of this particular course, but it is 
+important to understand where you can use them and that is where maybe there will be a lot of 
+focus on. There is still a very useful algorithm to know and use wide variety of problems can still be 
+solved using the support vector machines. So, we will continue in the next video about random 
+forest and then we will conclude with the comparison of random forest with SVMs. Thank you. 
+Video 7.2: SVM Implementation  
+Hello, welcome back. So, we will now look at SVM implementation, toy model dataset and we will 
+see how to you know do some kind of an ablation study as it is called on SVMs. Here the idea is the 
+following, ok. So, we want to take a toy dataset, run it through an SVM classifier, see how it 
+performs under various hyperparameters, combinations and we will also learn to visualise decision 
+boundaries, ok. 
+So, these are the things that we will learn using this particular implementation. So, I will just walk 
+you through some of the codes. The expectation is that you will type it in editor of your choice, 
+maybe Colab would work and you would run it and check this out for yourself. So, this video will act 
+as a guide towards that end, ok. 
+So, to begin we have to import all the essential libraries, ok, for data manipulation, numerical 
+operations and model evaluation, ok. So, if you look at it, the first few lines here you are talking 
+about import numpy as np, import pandas as pd. So, numpy is a library that lets you handle you 
+know matrices and all the numerical calculations, you know the floating point numerical calculations 
+that you have to do for the optimisation, right. Pandas is once again it is useful for handling you 
+know tabulated data, visualising them, importing them into your python workspace, right. 
+Matplotlib, the second two lines matplotlib as pyplot, Matplotlib.pyplot as plt and seaborn as sns, 
+these two modules are used for visualisation. So, you will also use them as part of this code 
+walkthrough, right. There are some tools typically for machine learning, ok. Scikit-learn is basically 
+the module that the library that has all of these algorithms already available. So, you do not have to 
+programme them from scratch, you just have to use them on the correct dataset. So, to implement 
+this the first need data, right. So, you need to load and prepare the dataset.  
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So, this dataset is not known as the iris dataset, basically iris is a type of flower and typically there 
+are three species of these flowers. 
+And the idea is to you know make a kind of a morphometric measurements of all of these flowers, 
+there are 150 samples of these flowers. So, the features that we can call them are there are four of 
+them sepal length, sepal width, petal length and petal width. These are the properties of the flowers 
+that are measured physically that are corresponding to three species, right. So, 150 samples. 
+So, each sample has four features like you mentioned the target variables, what are trying to do 
+target variable represents species of the flower. So, based on these four features given these four 
+features can we classify a particular flower as belonging to these three species that is setosa, 
+vesicular and virginica. So, it is a three class problem and this is a very standard dataset. So, I think it 
+is good dataset to play with if you want to understand any algorithm. 
+Of course, this is highly curated etcetera, but still I know it is a very good learning tool. So, in this in 
+this code see first load the iris dataset, it is already available internally. So, you load it using a 
+Datasets.load_iris() command. So, if you are if you go back to the previous slide, you can see that we 
+had actually talked about from sklearn we imported this datasets module. 
+So, that has the iris datasets already present in it, right. So, then we can assign it the features as well 
+as the target labels iris.data and iris.target, ok. And you can use pandas, pandas has a method called 
+DataFrames which lets you load the dataset in into your data frame for easy manipulation 
+visualisation, right. So, that is what this particular set of commands line of the code accomplish. 
+So, you can load this into Colab or any other IDE of your choice jupyter notebook and run each of 
+them as a separate cell and check the results for yourself. So, in this we are going to look at how to 
+visualise the data. So, the where we are going to use the seaborn modules pair plot function. So, 
+what it does is generates scatter plots for each feature pair with colours representing different 
+species. 
+So, this helps us to identify patterns and helps to see which pair of features are correlated etcetera, 
+right. And also tells us which features helps us to separate the different flower species. So, aiding in 
+model turnings, ok. So, let us look at this picture there are a bunch of there are 4 arrows of them, ok. 
+So, we look at the pair plots which is basically you look at these are the scatter plots which represent 
+you know the points in feature space, but since but there are 4 features, but you are only plotting 2 
+of them at a time, ok. So, the basically the scatter plots represent relationships between iris flower 
+features. The colours in the scatter plots represent different iris species. And so, what if you can if 
+you can look at these plots what you will see is that the petal features are better at distinguishing 
+species than sepal features. 
+So, the x axis has first 2 columns has the sepal features and the second 2 columns is the petal 
+features of the x axis. And the y axis is the first 2 rows from the bottom are sepal and the top 2 rows 
+are petal.  
+ 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+If you look at this column 3 and 4, if you look at the scatter plots scatter plots on a scuttle 3 and 4 
+where the plots are against petal features, you can see that there is a very good separation of the 
+classes. Therefore, that would be a very good those features are generally be useful or generally very 
+useful to distinguish between the 2 classes, right. 
+So, you can just plot this for small datasets with limited number of features. You can do this scatter 
+plots against pairs of features to understand how this work, ok. The diagonal plots show feature 
+distributions. Basically, the values, right you plot them as histograms for different features for the 3 
+classes. 
+And you can see that which ones separate the most. If you look at the again the last 2 rows, you can 
+see that the petal features generally the histograms are well separated thereby indicating that the 
+petal features are much more effective in separating the different classes than the sepal features. 
+Now, you have to split your data into train and test. Therefore, the method train test split helps you 
+do that it returns x train, x test, y train, y test where x is the feature tensor and y is your target, ok. 
+Typically, there is an 80-20 split between training and testing, ok. The training set is what you use to 
+learn the parameters of the model while the testing set is not all used to estimate the parameters in 
+this case the SVM parameters. So, that it helps you to test the generalisation of your algorithm, 
+right. Well, it is very easy to over fit on your training set and then it will not work on anything else. 
+Therefore, a 20 percent at least of the data that you have should be taken for testing that is not be 
+used to train the algorithm. So, now we are going to use the SVM classifier. So, in this slide we are 
+going to be look looking at the code that is useful for creating the classifier and training it. So, we 
+create an instance of the support vector machine classifier with a linear kernel. 
+So, it is the first line of the code. The linear kernel is chosen because the iris data is generally linearly 
+separate. If you look at this scatter plots, you see that very clear clustering of the points based on 
+features. We then fit the model to the training data enabling it to learn patterns for classification, 
+right. 
+So, Svm_model.fit() does that for you, ok. Again linear kernel or those RBF etcetera depends on how 
+complex your data is. You can then predict for both the training and testing dataset. So, given 
+X_train and X_test you can use svm_model.predict() to generate the predictions. 
+So, we can then using this you can create a confusion matrix to see how good your algorithm has 
+done both on the training as well as on the testing dataset. To assess the model performance we use 
+a confusion matrix and a classification report. The confusion matrix compares true versus predicted 
+classifications helping identify model errors, right. Classification report provides precision recall and 
+F1 score offering a detailed evaluation of the model's accuracy. 
+So, you can you know use the inbuilt functions as part available in sklearn and python in general to 
+generate these reports and check for yourself how well your model has done. So, here if you look 
+the SVM model seems to have done really well for this run we have seen using this dataset 97 
+percent accuracy.  
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+You also have precision scores of 1 which is really good for class 0, 0.97 for class 1 and 0.95 for class 
+2. Strong F1 scores indicate no minimal misclassification and it is across all cases F1 score indicates 
+strong robustness with minimal misclassifications, right. 
+On the test dataset the model achieved almost 100 percent accuracy precision recall F1 scores all at 
+1 almost confirming its reliability. Of course, you have to understand that this is a fairly simple 
+dataset with very little noise because it is highly curated data set. Now, when it comes to your own 
+applications you can expect the data to be a lot more complex in the sense that those histograms 
+that we saw of the different features for the three classes usually they are not that well separated. It 
+usually it will be look more like you know the histograms you had for the sepal features than for the 
+petal features, right. 
+A lot of overlap there is noise errors etc, right and that is when you have to try out different kernels, 
+okay. So, visualising the decision boundary, right this is important. So, one of the things is that we 
+have to understand is that you know SVM is capable of producing complex decision boundaries that 
+depends on your how you choose your hyper parameter. So, in this piece of the code on the slides 
+you are going to look at you know the decision boundary of the SVM model using the first two 
+features, okay sepal length and sepal width, okay. 
+A mesh grid is generated is created to plot the decision boundary where each region is colour coded 
+to indicate the predicted class, okay. The visualisation is helps basically to see how well the SVM 
+model separates different species in the dataset and that helps you understand how the how good 
+the classification is, right. using only the first two features for simplicity use sepal length and sepal 
+length and width for x_2d and y_2d is of course a target, then you train a 2d model, okay. This is 
+what the next lines 3 and 4 do, then you create a mesh grid using np.meshgrid and you use a SVM 
+model to predict your outcomes, okay and then you plot, okay. 
+The plot basically you can see you know you use you indicate the predicted regions by some colour, 
+right. So, we will see that and we will see how it looks on the next slide, okay. So, you can use a 
+contour plot and then do the points to scatter, okay and then colour code the rest, okay. So, here it 
+is, okay. 
+So, this is what you expect to find. So, separates the classes, this decision boundary separates the 
+classes using sepal length and sepal width. The decision boundary basically divides the feature space 
+based on the SVM predictions. The coloured regions here basically indicate the predicted 
+classification, right. 
+So, again the plot is just divided into regions where each shaded region indicates a predicted class, 
+okay. The points representing the data samples with different colour markings with different colours 
+marking their actual classifications, right. So, this basically helps to understand how linear kernel 
+separates different species, right, based on just these two features. Now, if you if you recall we were 
+just using two features, not all of them. 
+So, there is a separate SVM that you used and then you predicted your decision, you predicted 
+based on the trained SVM and then you plotted the actual points and the decision boundaries, okay, 
+using that code.  
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So, if you go back to the previous slide, you will be able to identify the last few lines of code or what 
+does the plotting. This visualisation basically shows the decision boundaries of the SVM model for 
+the iris dataset using sepal length and sepal width as features, right. Plot is divided into regions, each 
+shaded to indicate a predicted class. 
+The points represent the data samples with different colours marking their actual classification, 
+okay. So, this boundary shows how the SVM model separates different species based on these two 
+features, not separating the linear boundaries because we did use a linear kernel, okay. So, what is 
+the impact of different SVM kernels? How do we visualise the impact of different SVM kernels? 
+Because using the same code, you just have to change the kernel when you train the SVM, okay. So, 
+this shows the figures here show the impact of different SVM kernels on decision boundaries, right. 
+The linear kernel as we saw creates a straight decision boundary and it basically separates two 
+classes nicely and the data is linearly separable, okay. The polynomial kernel which is the second 
+picture in the middle with degree 3 introduces a curvature to better fit more complex data 
+distributions. 
+The radial basis function or RBF kernel captures intricate patterns again by creating really flexible 
+non -linear decision boundaries, okay. So, each one of them adapts to data in unique ways and it 
+shows how these kernels influence your classification accuracy, etcetera. Of course, you should try 
+these different kernels out and try to quantify how well they perform in terms of their classification 
+accuracy, F1 score, etcetera. The impact of the parameter c is basically one of the hyperparameters 
+in the loss function, dual formulation loss function for SVM. 
+So, how do we, if you tune the parameter c in SVM model, how does it affect decision boundaries, 
+right? A lower c value, the c equal to 1 allows a softer margin basically leading to a more generalised 
+model that tolerates misclassifications. As c increases basically something to a value of 10, the 
+boundary becomes more defined reducing misclassification but increasing the sensitivity to noise. 
+So, you have very tight boundaries but therefore, it is very sensitive to noise. 
+In the sense, noise can push it to boundaries on either side. noise can push it to either side of the 
+boundary. At c equal to 100, the model prioritises correct classification creating a highly complex 
+boundary that may over fit the data, right? So, choosing an appropriate c value will reflect, you 
+know, balances basically how, you know, how flexible and how accurate you are, okay? 
+So, you can just go through these figures, each one of them for a particular value of c, the leftmost 
+one or c equal to 1 and as you see, if you increase to c equal to 10, the boundary becomes slightly 
+more curved and all of the boundaries and at c equal to 100, you find this overfitting, right? 
+Overfitting means the boundaries are drawn so that, you know, it will be highly irregular boundary 
+so that all the, you know, there is a lot of, you know, weightage attached to increasing the 
+classification accuracy on your training dataset, okay? Therefore, you get this really overfitted data 
+which is very sensitive to noise in your test data. This concludes our brief demonstration of the SCM 
+algorithm on the Iris dataset.  
+ 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+The idea is to use this demonstration to change the hyperparameters of the SCM classifier, play with 
+them, different kernels, different values of the parameter c and to see how these affect your results, 
+right? So, again, Iris dataset is a simple dataset where the visualisation is also simple. There are only 
+four features. You can do pad plots to look at it. 
+You are welcome to try large datasets, large datasets with more number of features. 
+Video 7.3: Random Forest 
+Hello and welcome back. So, in this video, we will look at random forest, another machine learning 
+algorithm, which was and still is widely used for in a lot of applications, right. It is a very powerful 
+algorithm and generally it is considered a workhorse for many applications. The random forest 
+algorithm basically can be considered an ensemble learning technique, ok. 
+And it basically combines multiple decision trees. So, we have looked at decision trees earlier. So, 
+random forest basically combines multiple decision trees to improve prediction accuracy and control 
+overfitting. For classification tasks, it determines the output by selecting the most common class 
+among the trees, that is, you know, maximum voting. 
+For regression tasks, it averages the predictions of individual trees, right. So, the way it works is that 
+you train individual decision trees on subsets of your original training data, ok. So, this process of 
+using subsets or samples of original trained data is known as bootstrap aggregating or bagging, ok. 
+So, basically the way it works is it trains each tree on a random subset of your training set. 
+And this enhances the diversity ensuring that the trees do not all follow the same patterns or make 
+identical mistakes, ok. And there is additionally at each decision split. So, if you recall the binary 
+decision trees at each decision split, each tree selects or I say a creature is also selected at random, 
+right. So, the each tree selects at random a subset of features, right. 
+Reducing the correlation between the trees in the sense that two decision trees will not be splitting 
+at each level at the same way. They will be using different set of features for that, right. So, and then 
+you have a bunch of trees trained this way and then you do an ensemble of these trees. So, this is 
+what makes random forest a really powerful algorithm. 
+Of course, the features that we are talking about have to be extracted. So, this is the part where you 
+know deep learning is gives you a big advantage in the sense that you do not have to engineer the 
+features here for random forest. You do have to have you know the features for each dataset, right. 
+And that has to be engineered or hand engineered as they call it. 
+So, it is not automatic. The process of selecting the features is not automatic. But once you have 
+them, once you have a fixed amount of data, then you can everything else is automated. You can 
+train a bunch of trees and get good results. 
+So, let us consider how, let us find out how you know bagging works or bootstrap aggregation as it is 
+called. So, the dataset that you see on the screen, it is basically a part of the housing prices dataset. 
+In fact, I urge you to go to Kaggle.com and housing price dataset is basically where you start off with. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+If you want to use any of the conventional ML algorithms, that is non deep learning based ML 
+algorithms, housing price dataset is a very good dataset to begin with, right. 
+So, what you have seen, what we have is a subset of the dataset or something similar. Basically a 
+dataset of house prices that include key features influencing property values, right. So, in this case, 
+you are looking at the attributes such as size, location and the number of bedrooms, ok. The size 
+represents the area of the house in square feet or whatever unit you want, you can record it in. 
+Location indicates the neighbourhood and bedrooms support the number of bedrooms in the house, 
+ok. The target variable is the price which we aim to predict based on these features. Now, one of the 
+things you have to think about is, you know if the size is in square feet, of course it is rounded off like 
+an integer, but it need not be. So, it can be float. 
+So, size can be converted to float. The location if you look at it, there are like three locations there A, 
+B and C. So, therefore, location it is a categorical variable, ok. So, that is important thing and 
+bedrooms of course strictly integer, ok 
+There is no half bedroom option here, either 1, 2, 3 or 4, ok. It is also you can treat as a float value, 
+but the location is a categorical variable. So, this is one of the strengths of you know random forest 
+or you know decision tree type of algorithms wherein categorical variables can also be used very 
+easily to grow the tree. Now, how do you do this bootstrap aggregation? 
+So, in the bootstrap sampling step, we randomly select samples from the original dataset with 
+replacement to create multiple subsets known as bootstrap samples, ok. So, what we do is, we have 
+some let us say 10 or 20 points, let us say 10 data points. You kind of you know sample from that. In 
+the sense, you generate a bunch of, you can provide a sample index to each one of these datasets. 
+Let us say you have 10, you can label them 1 to 10 and then you can sample you know uniformly 
+from a uniform distribution random numbers from 1 to 10 and then select that particular sample, 
+right. So, that is one way of doing it. So, bootstrap sampling basically with replacement, you select 
+you know subsets of your data. Of course, you can get rid of the duplicates, right. 
+There is quite possible you get duplicates, you will have to get rid of them, right. These are known as 
+bootstrap samples, right. So, this technique basically increases the diversity of training data for each 
+decision tree in the random forest. So, let us say if you do this like some 10 times, let us say you have 
+10 data points and you select 5 at random or maybe even 10 at random from each one of them. 
+Well, ideally if you typically select only a subset, right. So, you will get you know, you have created 
+these synthetic datasets, you know 10 of them. If you do it 10 times, you get, you create 10 synthetic 
+datasets based on your original dataset, right. And so, then you train each of your decision trees on 
+each one of these individual datasets, right. 
+So, for example, in this particular case, we generate 3 bootstrap subsets from the housing base 
+dataset we saw, ok. Each set subset contains a mix of original data points with some appearing 
+multiple times and others being excluded, ok. So, this means I mean you can get rid of the 
+duplicates, you can work with them, ok.  
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+But this variation ensures that each tree is, decision tree is trained on a slightly different data and 
+which, you know, improves the overall accuracy and robustness of the model that we are talking 
+about. 
+So, if you look at this training decision trees on the bootstrap subset. So, this is once you boot, once 
+you get the bootstrap samples. So, you can think of bootstrapping as also some way of generating 
+and augmenting data as it is called in the modern parlance, right. So, you can create, you know, 
+more data by just sampling from the existing data, that is how it is. 
+So, in this step that we are talking about the training the decision trees, we train a separate 
+regression model such as a decision tree on each subset, bootstrap subset created in the previous 
+step, ok. So, this is a regression model. So, you learn to predict, right. So, then each model learns 
+from its respective subset of the data, allowing for diverse representations of the relationship in the 
+dataset, ok. 
+So, in this case, we look at this model 1 is trained on subset 1, model 2 on subset 2, model 3 on 
+subset 3, ok. So, therefore, you know, each one of them is a unique tree, right. So, there is very little, 
+you know, chance of overfitting, etcetera. So, you get this way of training a bunch of different 
+decision trees on different subsets of your data, right. 
+So, this is the key process in ensemble learning, right. So, if you have multiple models trained on 
+subsets of your data, you can, you know, average those models to get a better result, right. So, it is 
+like very similar to if you are going to make a measurement, let us say you do one measurement, let 
+us say a person's height, right, you get some value, but you do not, you cannot quantify the 
+uncertainty in that value, right. But on the other hand, you do 10, 20 measurements, then the mean 
+of those measurements tend to be much closer to the actual height than if you just do one 
+measurement. 
+And you can also quantify the uncertainty by taking the standard deviation over those 
+measurements. So, very similar in concept, you have a bunch of, you know, different algorithms 
+trained on subsets of your existing data, but the and then you can aggregate the outputs from each 
+one of them for a specific input. So, you can average it, which case this is like equivalent of doing 
+different measurements, right, and you get a better estimation of your output. So, one outlier that 
+will not, you know, if you have enough of these trees, one outlier result will not affect the actual 
+outcome that you are looking for. 
+So, very simple way for regression, once we each of these decision trees gives an output, the way 
+you would combine the predictions would be just to a simple averaging of these outputs, right. So, 
+far this is, you know, the trick result shown in the slide, where each model predicts the housing 
+price, and then you usually output the average of these three. For a classification task, instead of 
+averaging, the final outcome will be based on the majority voting, that is, let us say there are three 
+trees and two of them say class 0 and one of them say class 1, I would say the output is class 0. So, 
+the, that is basically the class that receives the most votes would be chosen as the final prediction, 
+okay. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So, ensuring a more reliable outcome. So, there are strengths and limitations of this random forest 
+technique, okay. It is robust in the sense, it is less sensitive to noise and, you know, and overfitting, 
+right, performs well across various datasets and less sensitive to noise and overfitting compared to 
+individual decision trees, right. Feature importance, you can help identify which features contribute 
+most to the predictions, right. 
+This basically aids in feature selection and improves model refinement. So, you have to use all the 
+features, you can just use a subset of features which are more important, thereby reducing the 
+complexity of your model. It is versatile, it can handle both categorical and numerical data, because 
+at each node in a decision tree, you just have to take a split based on a condition and you can easily 
+do the conditions on the categorical dataset also, right. So, this is again done for a very powerful 
+algorithm. 
+So, once you have the features engineered, you, first, this could be a go-to algorithm whenever you 
+want something quick and very robust. So, while it is a powerful algorithm, it has some limitation, 
+right. So, its complexity, because of its ensemble nature, it is not somewhat less interpretable than a 
+single decision tree, okay. So, how, that is basically how specific features influence predictions. 
+That way, it is a bit difficult to predict, right, difficult to understand, right. And so, there will be some 
+applications where that is important and you might not be able to use it there. Training time takes 
+longer to train, because see, in the example we showed a toy model, three decision trees, but you 
+can imagine that, you know, in real life scenarios, the number of features would be a lot, there will 
+be a lot more data, maybe thousands of data points and you might end up training hundreds of 
+trees, okay. So, it takes time, especially for large data sets. 
+Memory usage, it requires more storage, because it maintains multiple trees and it might be a 
+problem in resource constrained environments, okay. But despite these drawbacks, right, they are 
+widely preferred. So, they are very powerful to, they do really well, since this, because of this 
+bootstrap aggregating and the ensembling that you do, they tend to be an algorithm which is very 
+robust and provides very reproducible results. So, what are the applications? 
+So, lot of applications. So, personally, I work in medical image diagnosis and prior to the advent of 
+this convolutional neural networks and transformer, rational transformers, etcetera, random forests 
+had shown exceptional results in analysing medical images. But one of the things you do have to do 
+is to extract features from the images first. But once you have these features, they are very good, 
+especially for automated diagnosis, right. 
+Similarly, we look at fraud detection in the finance sector by examining patterns in the transaction 
+data, right. So, you can distinguish between legitimate and suspicious activities for customer 
+segmentation based on purchasing behaviour, right. Again, this is a very useful tool, once again, 
+because each customer is defined by a bunch of features, starting from name, age, demographics to, 
+you know, salaries to all kinds of, and of course, what they purchased, all of this mixture of 
+categorical and float values, which is very useful to use these systems. Recommendation systems, 
+once again, suggest products based on user preferences. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So, by looking at historical data of user interactions, you can provide tailored recommendations, 
+right. So, here too, again, the data you get is for every customer, like what kind of data you have, it 
+can be categorical, it can be float, but some historical data, time series data, all of them can be 
+incorporated into these algorithms. So, it is a good algorithm to know about when you try to do 
+something on your own. So, therefore, now we conclude our brief presentation on random forest. 
+It is basically an ensemble of the binary decision trees, right. Actually, try out the implementation 
+that are available as part of some Python toolkit or the other, and try it out on some standard 
+datasets. All of these also have their standard data sets. So, that is what that, right. 
+So, just to conclude, so we have looked at both SVM as well as random forest. Both of them are 
+excellent algorithms. SVM works really well, especially if you have lots of features, I mean, not too 
+much data, et cetera. The same thing with random forest, you know, it is an ensemble technique. 
+So, therefore, it is much more robust. So, both of them have their pros and cons. They are one of the 
+most, you know, they are considered the workhorse of machine learning algorithms, right. For a 
+variety of problems, you can use them first, first shot before you move on to more complicated 
+things, right, because the implementation of these algorithms is available in many platforms, many 
+modules, in Python also, of course, a scalar. 
+And you can use them to get an idea of how good, you know, the cells can be. So, this can be 
+basically your benchmarking kind of algorithms. And if the results are good enough for deployment, 
+you just use these algorithms themselves every time trying some neural network. If you are able to, 
+of course, the only challenge in these algorithms is to engineer the features that are given as input, 
+right. 
+So, each, so the input to both the SVM as well as random forest is basically a feature vector. So, you 
+have to engineer the feature vector in both cases. 
+Video 7.4: Random Forest Implementation 
+We will now talk about random forest implementation briefly, and we will see what are the, and 
+then the latest video, later on in this series of videos, you will also learn to do a hyperparameter 
+optimisation for random forest, right, because there is a lot of hyperparameters here. So to start our 
+random forest implementation, of course, we have to import the necessary Python libraries, first 
+two NumPy and pandas are the usual ones that you require, one for the numerical computations in 
+Python, the other for data handling, right. So pandas, if you have a pandas data frame, then a lot of 
+manipulations become easier, followed by matplotlib and seaborn. These are two which are used for 
+visualisation. 
+And the last set, in the last set of commands in the breadbox, they provide the tools for machine 
+learning, right. And of course, we have to import the data sets from sklearn and models, of course, 
+random forest classifier, the modules or the methods to generate the report as well as the confusion 
+metrics, right. So there is a preprocessing module also, standard sklearn, okay. So you can import 
+this and as usual, try it out on, let us say, favourite editor, Jupyter Notebook or Colab. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+This is what we are trying to do is to load the diabetes data set. So you can use the data sets, load 
+diabetes to do it, and which contains the various health measurements of patients, okay. Target 
+variable indicates whether a patient has diabetes or not. So we can directly load this from scikit -
+learn as indicated earlier. 
+We then extract the features and target variables, right. So which is what is done in lines following 
+the creating a data frame comment. So you can extract the data frame and you can visualise it, right. 
+The way to convert this is to convert the target variable to binary values, where one represents 
+diabetes and zero represents its absence, okay. 
+So the way to do that would be to, if you look at the code, y is your target variable and you basically 
+say diabetes is the target greater than 140. So it is basically 140 is nothing but your fasting glucose or 
+maybe post meal glucose. One of those measurements, you threshold it, if it is greater than 140, 
+then you have diabetes. If it is less than 140, you do not have diabetes, right. 
+So that is how you create your binary variable data set, right. So instead of trying to predict y as a 
+float value, you convert this into yes or no answer because in general, the diagnosis is also done so 
+that you have a cut the value and then say if it is okay, 140 is the concentration of glucose 
+concentration, then you say yes. Greater than 140, you say yes, otherwise you say no, okay. So you 
+can, of course, try different values for this, but I think 140 is probably the clinically mandated one, 
+okay. 
+So but for the purposes of this discussion, you can use 140, that is good enough, alright. So then 
+once you threshold it, then we get the data frame for better visualisation and add the target variable 
+as a new column called diabetes, okay. So then you can just display the first few rows using the dot 
+df dot head, diabetes underscore df dot head to see whether we have formatted it properly. So now 
+we have loaded our data, we have to visualise it to gain some insights. 
+The pair plot function from seaborn will help us do it. This function basically creates scatter plots for 
+each pair of features in a data set. Each point is coloured according to the diabetes status, that is 
+whether a person has diabetes or not, which helps us visualise the separability of the classes. We 
+specify the data frame, the diabetes from the data frame, the diabetes column for the hue and the 
+deep palette for colours. 
+And we also add a tidy to the plot as well as and then choose plot dot show to display the generated 
+visualisation. So if you do this kind of plots within pairwise features, in the feature space, you can 
+see whether any pair of features help them separate these two classes uniquely, right. So that is the 
+idea. So we use the usual 80-20 split for training testing, right, always have to do it regardless of 
+which machine learning method you are using, okay. 
+In fact, if you go further, you know, if start getting into deep learning and even and some other 
+algorithms, you also have to do one more split called validation where we do not do that, we just do 
+training and testing. After that we train a random forest classifier with 100 decision trees to boost 
+accuracy and reduce overfitting, okay. So this is are again accomplished by the simple commands 
+shown in the slides, right. First one is the train test split. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+That is the method that you use to split the data into training and testing for random forest classifier 
+which we imported from sklearn, we use that to create the model object and then use the fit 
+method to actually do the training. Once the model is trained, we can generate the predictions using 
+the predict command. You can you have to predict the training set labels first to evaluate how well 
+model fits the training data. Then we predict the test set labels, which shows how well the model 
+generalises to unseen data, okay. 
+We will use these two to determine the models accuracy and performance. So typically you can do a, 
+you know, this classification report or confusion matrix separately for the training as well as the test 
+data. So to evaluate the models performance, we use the confusion matrix and classification report. 
+Confusion matrix obviously compares true and predicted classifications, highlighting where the 
+model makes mistakes, okay. 
+Classification report provides metrics such as precision, recall and F1 score. That gives you a detailed 
+view of the models accuracy, okay. And you can do this like I said for both the training as well as the 
+test data set. These are accomplished by sequence of commands shown here, okay. 
+Confusion matrix and classification report for training followed by confusion matrix, classification 
+report for. We now assess model performance, we are looking at the model performance using a 
+confusion matrix and classification report, okay. For the training data, if you notice, the confusion 
+matrix shows perfect classification, mobile classifications. And that is basically what the classification 
+report shows. 
+And you also see the, again based on the precision, recall, F1 score of 1 for both classes, leading to 
+an overall accuracy of 100 percent. For the test data, the confusion matrix indicates some 
+misclassifications, 12 false positives, 13 false negatives. Classification report shows a precision 0.74 
+for class 0, 0.69 for class 1, overall accuracy of 72 percent, okay. So which means that, so this shows 
+that the model performs perfectly on training data, generalises slightly lower accuracy, okay. 
+Possibly overfitting, right. You can see that. So we also look at feature importance, okay. Turns out 
+that random forest classifiers can assign, especially binary distinct trees also, can assign importance 
+scores to each feature, ranking them based on their influence on the final result, okay. 
+The top ranking feature, of course, has the highest impact on the classifications, while the lower 
+ranked features contribute less, okay. Bar chart basically there on your screen, on the slide, 
+visualises these importance scores helping identify key factors driving the modelisation, okay. This is 
+a useful insight, right. And if you're actually doing data analytics for your company, this will be very 
+good to report, right, based on your analysis. 
+What is, if you're looking for, you're trying to study some phenomenon and see which one, which of 
+the factors has a big impact on your decisions, right. So that's very useful to have. So that's one of 
+the reasons these methods are very popular, because it lets you also assign importance to the, what 
+kind of data that you actually have to collect. So in summary, we have covered a very brief 
+introduction to implementing random forest. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+Random forests have been around for a long time, along with binary distinct trees. Again, at some 
+point, the workhorse of many, you know, for many classification problems, with a wide variety of 
+fees, okay. Once you have the features, then you can just use random forest for many, many 
+problems, even today, okay. And they're also cheaper to implement in terms of computations, et 
+cetera. 
+Therefore, it's a good algorithm to know. You also have to understand how it works so that you can 
+tune it properly. So one of the future videos, we're going to see how to, you know, do proper hyper 
+parameter optimisation for random forests. Thank you. 
+Video 7.5: SVM vs Random Forest 
+So, we are going to look at SVM versus random forest. Once again, the best way to do this is to 
+actually run it through a data set, right. But you know, this might not be very good if you want to just 
+try it out like a toy problem. If you want to try this on a toy problem So, it is, but it is good to 
+understand what the pros and cons are, right. 
+So, the question is, when should you use a support vector machine and when is a random forest is 
+the better choice, right. So, the best of course, right now given the amount of compute available, 
+perhaps we just go ahead straight and implement both of them to see how well these things work. 
+For classification tasks, they are very good tools, both support vector machines and random forest 
+are very good for classification, especially for binary classification, ok. We know that SVMs focus on 
+maximising the margin between the classes, while random forest use multiple decision trees and 
+through by and then come to the conclusion through ensemble learning, ok. 
+So, but then this is not very illuminating, right. Knowing this does not get you much, you just have to 
+try it out on different data sets to see how well they work. If you look at some of the differences, 
+right, so if you look at feature scaling, feature scaling is required for, you know, is for SVMs, right. 
+Random forest, you need not do it actually, it turns out that way. 
+The way it handles nonlinearity, so SVM uses something called the kernel trick and random forest 
+achieve it through the tree structure. So, but every level at every node you have a decision, so 
+basically like a small threshold that you draw. So, it is like drawing a line in the feature space parallel 
+to the threshold value, at that threshold value, right and that is the way the nonlinearities are 
+handled by SVM and random forest. The interpretability in SVM is low, you have no idea how to 
+interpret the results because you are implicitly mapping your features to higher dimensional space 
+and then do and then separating zero, the different classes by hyperplane, therefore you really do 
+not know what is happening in the higher dimensional space, so that is very hard. 
+The random forest interpretability is slightly better using feature importance that you can do some 
+level of interpretability. Overfitting is a problem with SVM with small data sets, but random forest it 
+is slightly lower because you are doing this bagging, whereas we are basically working with samples 
+of your original data, so we are doing some form of data augmentation. Training time, it is slow on 
+large data sets SVMs and random forest is basically very fast on small to medium data sets. So, when 
+do you use to what, right, so how do you choose between support vector machine and random 
+forest. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So, we use an SVM when you are working with a small to medium size data set, right and where you 
+can expect a clear margin between classes and do not need your model to be easily interpretable, 
+okay. So, in the sense like you know that your, in fact it is very good if your model is linearly 
+separate, if your problem is linearly separable in terms of classes 0 and 1, straight line and then you 
+do not have a large data set, okay and you do not have to worry about interpretability then SVM is a 
+good choice. On the other hand, random forest is when you have quick results with minimal 
+preprocessing, your mix of categorical numerical features and you are worried about which features 
+matter etc., then better to use the random forest, right. So, there is a model available in sklearn data 
+set, breast cancer data set apparently. 
+So, you can use that to evaluate these two and look at the confusion matrix etc., okay. I will just 
+show you the results very briefly and you will see that this point is not does not tell you much, right. 
+So, it is best that if you have your own data set, you should throw the data set and go these 
+algorithms, right. I urge you to go and try both SVM and random forest on a model data set here, it is 
+the breast cancer data set, it is also available in Python. 
+So, if you look at this classification, you know, benign or malignant classification, if you look at the 
+confusion matrix, there is not much to you know take away from the two, right. SVM has 52 correct 
+predictions for class 0, random forest has 51, 87 for class 1 SVM and 87 for class 1 random forest, 
+right. Two misclassifications in each class, slightly more errors in class 0 predictions for random 
+forest, right. So, therefore, I mean you can say that, you know, both our models perform well, SVM 
+has a slight edge in a precision for this data set, okay. 
+So, you can just evaluate the confusion matrix and see which one to go with. So, if you look at this, 
+the best way to do is take a subset of your data and quickly evaluate that both SVM and random 
+forest on that data and see which one gives you a better confusion matrix. It is diagonally dominant 
+confusion matrix and then you used and you make a decision based on that, right. You can do it in a 
+different ways, you can do multiple small samples of a data set and evaluate it on these two 
+algorithms and see which one gives you a better result. 
+So, all of these are possible. So, the takeaway is that, you know, based on the context you have to 
+choose the right model, right. So, you have to evaluate your model on both training and test data, 
+that is very important. Helps you whether it is overfitting or not. 
+So, as an addendum to what I talked about in the previous slide, you know, it is not so you can 
+sample it a small portion of your training data and then see how well it works, but then you should 
+always have some test data set aside, then you can always test a little bit there also just to make 
+sure you are not overfitting, right. SVMs work better with clean, well-scaled data and clear class 
+boundaries. Random forest can handle noisy or complex boundaries, okay, or noisy or complex data 
+sets. So, depending on your data, you might have to choose which algorithm is best based. 
+Like I said, there is a way to evaluate this, you evaluate it on small subset and you can use it. So, this 
+kind of concludes our brief look at, you know, our voids through both SVMs and random forest. 
+There are lots of tricks that go into training these models. For instance, all of these have hyper 
+parameters, you know, how deep that T should be, value of the constant C in SVM, right. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So, there are different hyper parameters for each of these algorithms that have to be tuned to get a 
+very good result, right. So, there are again, once again, entire infrastructure built to enable you to do 
+these things, right, both in Python modules or any of the other machine learning platforms. So, you 
+have to use those in order to get to an optimal algorithm for your data. 
+Video 7.6: Hyperparameter Tuning Random Forest with GridSearchCV 
+Hello and welcome back. So we are going to be looking at how to fine tune your random forest 
+hyperparameters. So that's the focus of this video, hyperparameter tuning random forests with 
+GridSearchCV. And as I said earlier, the idea is to estimate what kind of hyperparameters will help 
+your random forest achieve better results. 
+So the random forest algorithm, which is basically a collection of binary decision, ensemble of binary 
+decision trees has a lot of hyperparameters, you will see each one of them. And getting a right mix of 
+them helps you to optimise the performance of the random forest algorithm. So in the next set of 
+slides, we will figure out how to tune it step by step. So what are the hyperparameters? 
+So hyperparameters are those that you define, settings that you define before training a machine 
+learning model. And every set of algorithms has its own set of hyperparameters. So in a random 
+forest, for instance, you might set the number of trees or the maximum depth of each tree. These 
+are not learned from the data. 
+What is learned from the data is the decision boundary. But all of these hyperparameters are not 
+learned from the data. They are typically set by hand in the sense it's more trial and error at some 
+point. But you can do a systematic search through the hyperparameter space and tune them 
+properly. 
+And that leads to a big improvement in the classification accuracy or regression outputs. That is your 
+model performance is much improved if you do the hyperparameter tuning properly. So what are 
+the hyperparameters, key hyperparameters in a random forest? So what are those that you can tune 
+in a random forest model? 
+And each one of these hyperparameters plays a specific role in how the model learns. So we start 
+with then_estimators, the first one on the table, which is basically the number of trees in the forest. 
+How many binary decision trees are you going to ensemble to get the final result? More trees 
+generally lead to better accuracy, but they will also increase the training time. 
+Next one is the max_depth, second row of the table on the slide, which controls how each tree can 
+grow. And setting this helps manage overfitting, which is understandable, right? So if you have a 
+very deep tree, then you end up correctly classifying every one of your data by splitting your feature 
+space into smaller and smaller areas, right? And so that is avoided by setting an optimal depth for 
+your tree. You also min_samples_split, which defines the minimum number of samples that are 
+needed to split a node. And the closely related one is the min_samples_leaf This is basically the 
+minimum number of samples that must be at a leaf node, okay the max_features decides how many 
+features the model considers when making a split. This affects both performance and speed. Finally, 
+the bootstrap controls whether sampling with replacement is used when building the trees. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+Together, all of these hyperparameters basically give you the tools to balance accuracy, training 
+time, and generalisation. So if you look at this, some of these hyperparameters, now they have 
+some, you know, interaction with each other. So for instance, if you consider min_samples_split, so 
+basically if the number of samples at a node is less than the minimum samples, then, you know, it's 
+that node is not, you know, it's not split further, okay On the other hand, if you have 
+min_samples_leaf if the number of samples that there has to be at least the number of samples in it 
+to be considered as a leaf node, right? So if there are too few samples, for instance, lesser than what 
+you specified, then it is not considered as a leaf node, right? 
+So this helps to prevent overfitting, right? Because if you have too many, too few samples per leaf, 
+and then you basically are, you know, memorising your training data set. So to summarise, if 
+min_sample_splt is basically what is the minimum number of samples required to split an internal 
+node into two child nodes, okay So if a node contains fewer than min sample split samples, it won't 
+be split further, it becomes a leaf, okay So increasing this value makes the tree shallower and less 
+complex, okay So let's say min sample split is 10, then if a node has only 8 samples, it stays a leaf, so 
+there's no split. If the node has 15 samples, the tree can attempt to split, but only if the resulting 
+children also satisfy min samples leaf, okay So what does min samples leaf do? 
+This is the minimum number of samples required in a leaf node after a split. So what it does is 
+ensures that each terminal node has at least this many training samples, that is a min samples leaf 
+number of training samples, and it prevents splits that would produce very small, possibly noisy 
+leaves, okay So let's say min samples leaf is 5, and if a split results in one child node with only three 
+samples, that split is not allowed, okay So even if min sample split is equal to 10, let's say, is satisfied, 
+that split will be rejected if min samples leaf is violated, okay So how do they interact? We think of it 
+like this, min samples splits controls whether a node is eligible for splitting, and min samples leaf 
+controls whether the result of the split is acceptable, okay, to be a leaf basically. So that's the way 
+these things interact, okay So why do we use these two? 
+To prevent overfitting, right? So small leaves memorise, small leaves in the sense, leaves that 
+contain very few data points, they memorise the training set, leading to poor generalisation. On the 
+other hand, to also to enforce smoothing, larger leaf sizes, that is more number of points in a leaf 
+node, averages over more samples, giving rise to more stable predictions. So similarly, you can do 
+for max features also, you can try to understand, it specifies a number of features to consider when 
+looking for the best split at each node in each tree Now this is not the total number of features used 
+in the model overall, and just the subset considered at each split, right? 
+So when you remember random forest, when we talked about, we saw that it's a collection of a 
+ensemble of binary trees, decision trees, but then if you look at the binary decision trees themselves 
+at each node, you don't consider all the randomly selected subset of features are considered for the 
+split at each node, okay So for instance, if the default is the square root of the number of features, I 
+think, that's a default, right? You can take the log of the number of features, gives rise to fewer 
+features and more randomness. None will consider all features, and it's default for regression. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+You can get a fixed number of features, okay, limits the split options, okay You can take a fractional 
+number of features, it depends on, let's say, a specific value between 0 to 1, and this is very useful 
+for large datasets, right? 
+So why does this matter? It introduces a randomness into the tree building process, which is, makes 
+each tree more different, less correlated, helps prevent overfitting, okay So if it's a low value of max 
+features, it leads to more diversity between trees, which basically, if you're, let's say, out of 20, let's 
+say you have 20 features overall and you're selecting only three at a time, very likely that if you do 
+10 trees, you will have a unique set of features in many of them, right? Higher values, that is up to all 
+the way to all the features, using all the features, can make individual trees stronger, that is, each 
+trees, if you're able to consider all the features for splitting, then the tree becomes a very good 
+classifier. Individual trees become good classifiers, but they become heavily correlated, right? 
+So which means that if you train 100 trees with all the features, many of them will look the same, so 
+it doesn't give you the power of the ensembling method, okay So if you use smaller max features, 
+you have less overfitting, more diversity of trees, less correlated, and better generalisation. If you 
+use larger number for max features, less randomness, stronger individual trees, and the trees are 
+more correlated, and they generally end up overfitting more, okay So this is the reason why you 
+would, you know, want to, what can I say, consider playing with these hyperparameters, right? And 
+therefore, you know, using, understanding how to navigate these hyperparameters is an important 
+part, okay So as we were talking before, it helps you, this hyperparameter optimisation helps you get 
+the most out of your model, right? Helps you to find out the best possible performance on a 
+validation set, not just what works by default, right? 
+That's a very common thing, mistake that people do, just call the code, some method that you know 
+exists, and you just call it. Understanding hyperparameters is a very important part, and to 
+understand hyperparameters, you would understand what the actual method is. So it's that way 
+useful to understand every algorithm, even though you might just be using them, okay. These 
+hyperparameter searches will help you avoid common problems, basically overfitting, which is that 
+you will get excellent results on your training set, and then whenever new data comes in, it will fail 
+badly. 
+So GridSearchCV is a tool that automates this process and makes experiments more efficient. What 
+it does, it performs an exhaustive search, trying every possible combination of the values you define. 
+Each combination is evaluated using cross-validation, which helps you estimate how well it will 
+perform on unseen data, okay At the end, it returns the best combination of hyperparameters based 
+on validation performance. This makes the tuning more systematic and reliable. 
+Now, another important lesson from here, this GridSearchTV is to remember this, you can do this for 
+the random forests, et cetera, for any, for average Datasets, time consumption is not that much. But 
+it's a good practise because when you eventually start using some, let's say, deep learning 
+techniques, okay, the number of hyperparameters there also is very high, okay, there too, people 
+generally don't seem to take the hyperparameter search seriously. They end up just running the 
+code once and then whatever results that comes out network that is trained, you just stick to that, 
+right? So that is not a very good practise. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+So you get into that mode here hyperparameter search mode here, serves you well when you come 
+to deep learning algorithms, okay So once again, we just walk through this on the slides very quickly, 
+of course, incumbent upon you to take this out and type it in your, you know, favourite IDE and 
+looking at the results. So before we tune the model, we need a few essential libraries, pandas and 
+numpy, scikit -learn, and we also import the breast cancer data set and the random forest classifier. 
+And then, of course, the tools for splitting the data and performing grid search, like the last, the lines 
+highlighted by the red box, those are the important lines, right? Finally, we can import the metrics, 
+which is the sklearn.metrics, which generates the classification report when summarising the model 
+performance, okay We set up the data for testing and training. 
+So we load the data first, that's the first line of the code. The extracting features and labels are done 
+using the pandas DataFrame, as shown in the slide. And then, of course, we split the data into 
+training and test data sets, okay And of course, this is very useful, always do this, because then you 
+end up, when you evaluate the model, you always evaluate it on data, which has not been seen by 
+the training phase. So here, we define the parameter grid, call the param_grid in this line of code, 
+and this basically holds the values we want GridSearchCV to export, okay So we include the settings, 
+like the number of trees, minimum number of samples, limiting, that is the depth of the tree, 
+features, you know, to consider at each split, and use sampling with or without replacement, okay So 
+each parameter has multiple options, and grid search will try every possible combination, right? 
+So here, we have six parameters with different choices, which results in, I think, here it is 96, right? 
+So six, and then there's one, two, again, each of them has different types of, if you look at it, 
+different ranges, for instance, right? So each parameter has about two values, right? So then you can 
+have a wide variety of these combinations for each one of them. 
+So we just first initialise, and the model, that is the random forest classifier, then we initialise the 
+GridSearchCV, and also set grad cross validation to threefold. We also use one job for processing, 
+and enable detailed logging, that is, by setting the verbose to two. Finally, we train the 
+grid_search.fit() on the training data using the fit function, okay So once again, so once you initialise 
+the classifier, if you look at the code, especially the ones in the box, red box, when you set up 
+GridSearchCV, you also say what the classifier is. The estimator is RF. 
+RF is initialised as random forest classifier in the first line of the code. So it basically runs the code for 
+your training data through all of these options. So after training with GridSearchCV, we use two 
+simple commands to extract the results. The first one, grid_search.best_params, grid search best 
+params, gives the best combination of hyperparameters found in the search. 
+Second one, best score, shows the highest cross validation score achieved using these settings. So 
+this helps us confirm both the configuration and the performance of our tuned model. So select the 
+best model from the grid search. Then we predict using the best model, then we print the report for 
+the best model, okay So one of the things you can do is also to look at pretty much most of the 
+models and see how they do. 
+Since, you know, you work on a limited data set, you work with a limited range of the 
+hyperparameters, you can just evaluate all of them just for your own benefit. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+I think you can just choose a few and see how well, what is the difference between them, right? Just 
+for your own, you know, satisfaction. So that way you can understand how this is a very helpful tool, 
+okay So why does this matter? 
+So basically, GridSearchCV finds stronger combinations than defaults and tuning enhances the 
+algorithm. See, random forest is already a strong algorithm, but hyperparameter tuning can make it 
+perform even better. So then you evaluate it both on train and test data, okay So basically right now, 
+all you have to do is take your own data, fit your random forest model to it using grid search CV and 
+see how much the performance is affected. So the best way, one of the, I think, tricks you should do 
+is just take your own data, just don't do any hyperparameter tuning, just use your instincts to set the 
+hyperparameters, get your model, and then do grid search CV, see how different these results are. 
+7.7: SVM vs Random Forest - Demo 
+While both are powerful, they are conceptually very different. SVM tries to find the optimal decision 
+boundary by maximising margins between classes. Random forest, on the other hand, works through 
+a collection of decision trees using ensemble learning to improve stability and accuracy. Our goal is 
+to develop an intuitive understanding of when and why to use each and what their outputs look like 
+in practise. Now let's walk through the key differences between support vector machines and 
+random forests, two powerful but fundamentally different classification algorithms. This comparison 
+will help you decide when to use which based on your data and objectives. 
+Let's start with the basic philosophy approach. SVM works by finding the hyperplane that best 
+separates the classes with the maximum possible margin. Think of it as drawing a very confident 
+boundary between classes. Random forest, on the other hand, takes an ensemble approach. It builds 
+multiple decision trees and combines their outputs, usually through majority voting. So while SVM 
+focusses on margins, random forest relies on consensus. 
+Feature scaling needed. SVM is a distance-based algorithm, which means it's sensitive to the scale of 
+your input features. You must normalise or standardise your data before feeding it to an SVM. 
+Random forest doesn't care about the scale of features. It splits the data based on thresholds, not 
+distances. So it works just fine without any scaling. This makes random forest easier to plug into raw 
+dataset. 
+What if data is nonlinear? SVM can handle nonlinear relationships using something called the kernel 
+trick, which projects your data into higher dimensions where a linear separator can be found. 
+Random forest, thanks to the nature of decision trees, inherently captures nonlinear patterns. 
+Without needing special tricks, it splits the data in a hierarchical way that naturally adapts to 
+complex structures. 
+Interpretability. How interpretable are the results? SVM, especially with nonlinear kernels, becomes 
+a black box. It's hard to explain why a particular prediction was made. Random forest offers 
+moderate interpretability. You can extract feature importances and even visualise individual decision 
+trees. But it's not as interpretable as simple linear model. It's much more explainable than SVM. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+Overfitting risk. SVM can overfit easily if your dataset is small or noisy, particularly when using 
+complex kernels. Random forest reduces the risk of overfitting by averaging predictions from 
+multiple trees. This ensemble approach, known as bagging, makes it more robust to noise and 
+outliers. 
+Training time. Lastly, the training time, SVM tends to scale poorly with data size. As the number of 
+data points grows, training time increases significantly. Random forest scales better, especially for 
+small to medium datasets. It can also be parallelised easily, which makes it faster in practise. So in 
+summary, SVM is precise and powerful for well-prepared, clean datasets where class boundaries are 
+clear. Random forest is robust, flexible, and forgiving. A go-to model for messy real-world data. Keep 
+these differences in mind as we move on to the practical demo and compare both models in action. 
+When to use what? So when we should use SVM and when should you go for random forest? If 
+you're working with a clean dataset and you expect well-separated classes, SVM can work very well, 
+especially in smaller datasets. But if you are in a typical real-world scenario where data might be 
+messy or mix of types, random forest becomes a more practical option. Especially if you are looking 
+for quick wins and don't want to fuss too much about feature scaling. 
+Let's compare with the demo. Let's now put these models to work. We will use the breast cancer 
+dataset, a binary classification problem, and apply both SVM and random forest to it. We will train 
+the models, evaluate them using standard metrics like accuracy, confusion matrix, and classification 
+report, and then compare their performance visually. 
+The first step would be importing relevant libraries for the demo. We need NumPy, Pandas, 
+Matplotlib for visualisation, SKlearn we are using to work with the built-in dataset. SKlearn will also 
+utilise for train-test-split, building our random forest classifier and support vector classifier. SKlearn 
+metrics will help us with the classification report and confusion matrix. And we are also importing 
+standard scalar to standardise our data for SVM. 
+We are loading the dataset, which is a built-in dataset. Cancer is equal to datasets.load breast 
+cancer. This is a built-in dataset we are loading here. Converting into a data frame. All the features 
+are converted into a data frame stored as x. The outcome variable, which is cancer.target is stored in 
+y. The objective is to predict if somebody has breast cancer or not based on number of features. 
+Next, we are taking this data. We are splitting into train and test. 75% of the data goes to the 
+training, 25% to test. 
+Then we are creating here SVM pipeline. We are doing the SVM training first. We are defining our 
+scalar, standard scalar here, which will standardise the data. We are utilising it to transform our 
+x_train and x_test and creating x_train_scaled. And x_test_scaled. Then we are initialising a model, 
+which is your support vector classifier. And then we are training the model over here. On the scaled 
+input and our output for the train dataset. 
+Similarly, we are also training the random forest model. We are initialising a random forest classifier. 
+Keeping all the values on a default setting. We are training the model on the x_train and y_train. We 
+are not using this scale data as it does not matter for random forest, whether we are using scale 
+data or the raw data. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+Next, we are evaluating the model. We are checking what's the prediction on the train dataset using 
+the SVM model. And then we are getting the classification report done on the train dataset. And the 
+same thing on the test dataset. Remember, when you're evaluating your model, you should always 
+evaluate for both train and test. That gives you the idea if your model is overfitted, underfitted or 
+just right fitted. A common mistake is we check the accuracy and other matrices on test only. And 
+we do not compare with the train values. Which does not give us the idea if my model is actually 
+overfitted. And we need to take care of it. 
+Here is the report of SVM on the train and test both. We have the full classification report here. We 
+go through the precision, recall, F1 score. And we see that precision for class 0 is 1 and class 1, it is 
+0.98. Even recall is quite high. Overall F1 score is coming to 0.99. Accuracy is also 0.99. And now we 
+compare this with our test data result here. And we see that precision goes little down compared to 
+your train dataset on the test. On the train, it was 1. On the test, it's 0.96. Precision on class 1, it's 
+almost same for class 1. It's exactly same for class 1. So we can see a little change in the 
+performance while trying to predict the class 0. But we can live with that. And in terms of recall, if 
+you see 0.97 and 1 and here it's 0.96 and 0.98. A touch overfitting, but I think we can live with that. 
+That's how the model has performed on the train and test dataset, our support vector machine. 
+Next, we are performing the same set of steps for random forest model. We are evaluating it on the 
+train and test data. If you look at the result over here, on the train dataset, the model's accuracy is 
+100%. And on the test dataset, the accuracy goes down by 3% in terms of precision. If I look at the 
+class 1, and on class 0, it goes down by 4%. Here we have a little bit of overfitting, which we can take 
+care by doing the hyperparameter tuning. Same thing goes for recall as well. The idea is, whenever 
+you are evaluating the model, you should check how the model is performing on train and test and 
+also compare at the precision and recall level. How is the precision for different classes for train and 
+test? And then same thing for recall. And then you will be able to understand that if my model is 
+overfitted or not. And also sometimes it gives you the idea, if you have multi-class classification, that 
+one of the classes are difficult to identify, and probably we should add more data for that particular 
+class. So it's important that you compare properly before making your judgement. 
+Next here, we have our confusion matrix. Let's bring this to life with a visual comparison. Here we 
+have the confusion matrices for both models displayed side by side. The confusion matrix tells us 
+more than just the accuracy, it breaks predictions into true positive, false positives, true negatives 
+and false negatives. Basically what classification report has told you, same understanding we are 
+going at the raw data level. This slide over here is just giving you the idea on the test dataset, how 
+my model is performing SVM and random forest. You will want to check how each model performs 
+in this regard. You will likely notice that while both models have high accuracy, their strengths differ 
+in terms of how they handle the borderline cases. Also visually comparing these matrices make it 
+easier to spot patterns that numeric metric might hide, but overall it's a numerical pattern only. And 
+see here, when I look at the SVM model on the test dataset, we have overall four misclassifications. 
+And when I look at random forest, overall we have five misclassifications on the test dataset. So if I 
+compare from that perspective, SVM is performing a bit better on unseen data. And when we saw 
+the performance on the trained data, we realised random forest has outperformed SVM. But given 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+the choices in this regard, because I have lesser misclassification on the unseen data by SVM, that's a 
+tad better model in this example. 
+So this is how the model has performed two different models on the same set of data. To wrap up, 
+there is no universal best model. SVMs shine in clean small to medium datasets with clear class 
+boundaries and required pre-processing like scaling. Random forest, while not always the top scorer, 
+are incredibly robust and easy to deploy, especially when data is messy or include categorical 
+variables. Always remember, evaluate on both train and test sets. Look at metrics, inspect confusion 
+matrices, and visualise classification report. This not only improves model selection, but also gives 
+you deeper trust in your results. 
+7.8: Hyperparameter Tuning Random Forest with GridSearchCV - Demo 
+Before we train any machine learning model, we need to decide on a few configuration settings. 
+These are called hyperparameters. Unlike model parameters that are learned from the data during 
+training, like coefficients in linear regression, hyperparameters are set before the training process 
+begins. They determine how the model will learn. For example, in random forest, we decide 
+beforehand how many trees to include, how deep those trees can grow, and what criteria to use 
+when splitting nodes. Tuning these values has a big impact on performance. The right 
+hyperparameter configuration can dramatically improve accuracy, reduce overfitting, and make the 
+model generalise better. In layman language, if I have to explain what hyperparameters are, think of 
+them as certain parameters in the model which are not learned from the data, but they impact your 
+model performance. Tuning them for the right value will improve your model performance. On the 
+other hand, if you move in the wrong direction, it might actually deteriorate your model 
+performance as well. 
+Hyperparameters in random forest. Let's take a closer look at some of the most commonly tuned 
+hyperparameters in a random forest classifier. We have many of them, some of which are 
+mentioned here. n_estimators: This controls the number of trees in the forest. More trees generally 
+give better results but also increase training time, so you have to strike a balance. Start with some 
+decent number for the n_estimators, see how the model is performing, then gradually increase it. 
+max_depth: This sets the maximum depth for each tree. Shallow trees may underfit, while very deep 
+ones tend to overfit. min_samples_split: This is the minimum number of samples required to split an 
+internal node. Increasing this value makes the model more conservative. min_samples_leaf: This 
+sets the minimum number of samples required to be at a leaf node. It helps reduce overfitting by 
+smoothing the trees. max_features: This defines how many features to consider at each split. You 
+can use square root or log base 2 to reduce variance. bootstrap: This controls whether to use 
+bootstrap samples when building trees. When set to false, it uses the whole dataset for each tree. All 
+of these impact how flexible, generalisable or robust the final model becomes. 
+So why go through the trouble of tuning? By selecting the right hyperparameter values, we can 
+unlock the true potential of a model. Good tuning helps us avoid overfitting, where the model 
+memorises the training data, or underfitting, where it fails to learn patterns properly. It also ensures 
+optimal performance on validation and test datasets, leading to better accuracy in real-world 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+predictions. Lastly, hyperparameter tuning brings structure and automation to experimentation, 
+making it easier to test different ideas systematically. 
+Now let's talk about GridSearchCV, the tool we will use for tuning. GridSearchCV stands for grid 
+search with cross-validation. It takes a dictionary of hyperparameters and performs an exhaustive 
+search over all possible combinations. For each combination, it trains the model multiple times using 
+cross-validation and evaluates performance. In the end, it tells us which combination worked best, 
+along with the corresponding performance score. It's thorough, systematic, and one of the most 
+reliable ways to tune models when the dataset is not too large. GridSearchCV will help you to find 
+the best set of hyperparameters from the given set of values. So if you provide five values for a 
+hyperparameter, GridSearch will evaluate each one of them and tell you which is the best value in 
+terms of getting a better model. 
+One important aspect to understand is that GridSearch does not search for the best parameter 
+possible on its own. It simply tells you among the given set of values which one is better. So if you 
+are providing five values, it evaluates each one of them and tells you among those five which one is 
+the best. It does not look for any other value than what you have provided. If you have not provided 
+the right value, then GridSearchCV will not go and search on its own. 
+Now let's do a demo on this to understand how it works. We are going to use the breast cancer 
+dataset. We start by importing the required libraries — pandas, numpy for data handling, 
+load_breast_cancer for our dataset, RandomForestClassifier for the model, GridSearchCV and 
+train_test_split for training and tuning, and classification_report to evaluate the final results. These 
+imports are standard for most supervised learning workflows. 
+Load and prepare dataset: In this step, we load the breast cancer dataset, which is a binary 
+classification problem. We store the features in a DataFrame X and the target labels in y. We then 
+split the data into training and test sets using a 75-25 split. This ensures we have separate data for 
+evaluating how well our model generalises to unseen data. 
+Next, we define the grid of hyperparameters for tuning. We specify here six different 
+hyperparameters, each with two or three values. For example, for n_estimators we are providing 50 
+or 100. For max_depth we use None, 5, 10 (None means split as much as possible). For 
+min_samples_split, we are providing two values, and so on. 
+Then we initialise the random forest model and pass it to GridSearchCV. We specify the parameter 
+grid, set cross-validation to 3 folds, and use n_jobs=-1 to run in parallel across all available cores. The 
+verbose parameter is set to 2, giving us detailed progress output. Once configured, we fit the 
+GridSearch object on training data. Behind the scenes, this trains 96 different models, each with a 
+different hyperparameter setting, and evaluates them using cross-validation. 
+After training, we use two print statements to view the results. The best_params_ attribute gives us 
+the exact combination that performed best during cross-validation. The best_score_ shows the 
+corresponding average validation score. This is the model we will now use for our test evaluation. 
+
+  
+ 
+  
+ 
+   
+ 
+Professional Certificate Programme in Generative AI and 
+Machine Learning 
+ 
+Finally, we evaluate the best model on the test set. We extract the best estimator using 
+best_estimator_. We make predictions on the test set and then print the classification report. This 
+report includes precision, recall, and F1 scores for each class along with overall accuracy. We should 
+also evaluate our model on the train dataset to get a thorough understanding of whether the model 
+is over-fitted, under-fitted, or just the right fit. 
+To wrap up, GridSearchCV can find significantly better combinations than using default 
+hyperparameters. Random forest is already a powerful model, but when tuned properly, it becomes 
+even more effective. And finally, always remember to evaluate the model on both train and test sets 
+after tuning. This is the only way to detect overfitting and ensure your model truly generalises well. 
+THE END 
+ 
+ 
+ 
